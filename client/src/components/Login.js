@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import { axiosWithAuth } from '../utilities/axiosWithAuth';
+import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 
 const Login = () => {
   // make a post request to retrieve a token from the api
@@ -34,7 +35,33 @@ const handleSubmit = e => {
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
+      <p>Login here</p>
+      <div className="loginForm-container">
+          <Form onSubmit={handleSubmit}>
+          <FormGroup>
+            <Label for="username">Username</Label>
+            <Input type="text" 
+            name="username" 
+            id="username" 
+            placeholder="Username" 
+            value={login.username}
+            onChange={handleChange}
+            />
+        </FormGroup>
+
+        <FormGroup>
+          <Label for="assword">Password</Label>
+          <Input type="password" 
+          name="password" 
+          id="password" 
+          placeholder="password" 
+          value={login.password}
+          onChange={handleChange}
+          />
+        </FormGroup>
+       <Button>Login</Button>
+          </Form>
+      </div>
     </>
   );
 };
